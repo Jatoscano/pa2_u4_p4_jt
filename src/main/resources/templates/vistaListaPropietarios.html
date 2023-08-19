@@ -2,7 +2,8 @@
 <!DOCTYPE html> 
 
 <!-Se relaciona con la MetaData->
-<html lang="en">
+<!-Importacion de la funcionalidad Thymeleaf (Es como una liberia como el :th)->
+<html xmlns:th="http://www.thymeleaf.org">
 <head> 
 	<!-Se da la codificacion de la navegacion->
     <meta charset="UTF-8"> 
@@ -14,5 +15,34 @@
 <!-Contiene lo que la Pagina Web se va a visualizar->
 <body> 
     <h1>Hola Mundo</h1>
+    <table>
+		<!-Cabecera de la Tabla->
+		<thead>
+			<!-Definir las fias->
+			<tr>
+				<!-Definir las columnas->
+				<th>
+					ID
+				</th>
+				<th>
+					Nombre
+				</th>
+				<th>
+					Apellido
+				</th>
+				<th>
+					Cedula
+				</th>
+			</tr>
+		</thead>
+<tbody>
+			<tr th:each="propietario:${propietarios}">
+			<td th:text="${propietario.id}"></td>
+			<td th:text="${propietario.nombre}"></td>
+			<td th:text="${propietario.apellido}"></td>
+			<td th:text="${propietario.cedula}"></td>
+			</tr>
+		</tbody>
+	</table>
 </body>
 </html>

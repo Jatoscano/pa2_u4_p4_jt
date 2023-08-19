@@ -8,6 +8,7 @@ import com.example.demo.uce.edu.repository.model.PropietarioWeb;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
+import jakarta.persistence.TypedQuery;
 import jakarta.transaction.Transactional;
 import jakarta.transaction.Transactional.TxType;
 
@@ -49,8 +50,11 @@ public class PropietarioWebRepositoryImpl implements PropietarioWebRepository{
 	@Override
 	@Transactional(value = TxType.NOT_SUPPORTED)
 	public List<PropietarioWeb> seleccionarTodos() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		TypedQuery<PropietarioWeb> typedQuery = this.entityManager.createQuery(
+				"SELECT pw FROM PropietarioWeb pw", PropietarioWeb.class);
+		
+		return typedQuery.getResultList();
 	}
 
 	

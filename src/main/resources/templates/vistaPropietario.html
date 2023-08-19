@@ -1,0 +1,61 @@
+<!-Es la version de HTML->
+<!DOCTYPE html> 
+
+<!-Se relaciona con la MetaData->
+<!-Importacion de la funcionalidad Thymeleaf (Es como una liberia como el :th)->
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+	<!-Se da la codificacion de la navegacion->
+    <meta charset="UTF-8"> 
+    <!-Adpatacion a que dispositivo se usa->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <!-Pestania que se utilizara en el navegador->
+    <title>Document</title> 
+</head>
+<!-Contiene lo que la Pagina Web se va a visualizar->
+<body> 
+	<h1>
+		Actualizar Propietario
+	</h1>
+	<!-Se ejecutara a traves de un formulario->
+    <form th:action="@{/propietarios/actualizar/{id}(id=${propietario.id})}" 
+          th:object="${propietario}" 
+          th:method="PUT">
+    <table>
+		<tr>
+			<td>
+				<label>ID: </label>
+			</td>
+			<td>
+				<input type="text" th:field="${propietario.id}">
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<label>Nombre:</label>
+			</td>
+			<td>
+				<input type="text" th:field="${propietario.nombre}">
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<label>Apellido:</label>
+			</td>
+			<td>
+				<input type="text" th:field="${propietario.apellido}">
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<label>Cedula:</label>
+			</td>
+			<td>
+				<input type="text" th:field="${propietario.cedula}">
+			</td>
+		</tr>
+	</table>
+	<input type="submit" value="Actualizar">
+	</form>
+</body>
+</html>
