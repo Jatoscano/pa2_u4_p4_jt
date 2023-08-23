@@ -18,7 +18,7 @@ public class PropietarioWebServiceImpl implements PropietarioWebService{
 	private PropietarioWebRepository propietarioWebRepository;
 	
 	@Override
-	@Transactional(value = TxType.MANDATORY)
+	@Transactional(value = TxType.REQUIRED)
 	public void registrar(PropietarioWeb propietarioWeb) {
 		
 		this.propietarioWebRepository.insertar(propietarioWeb);
@@ -39,7 +39,7 @@ public class PropietarioWebServiceImpl implements PropietarioWebService{
 	}
 
 	@Override
-	@Transactional(value = TxType.MANDATORY)
+	@Transactional(value = TxType.REQUIRED)
 	public void borrar(Integer id) {
 	
 		this.propietarioWebRepository.eliminar(id);

@@ -10,26 +10,18 @@
     <!--Adpatacion a que dispositivo se usa-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
     <!--Pestania que se utilizara en el navegador-->
-    <title>Configuracion de Usuario</title> 
+    <title>Ingreso de Usuaio</title> 
 </head>
 <!--Contiene lo que la Pagina Web se va a visualizar-->
 <body> 
 	<h1>
-		Actualizar Propietario
+		Ingresar Propietario
 	</h1>
 	<!--Se ejecutara a traves de un formulario-->
-    <form th:action="@{/propietarios/actualizar/{id}(id=${propietario.id})}" 
-          th:object="${propietario}" 
-          th:method="PUT">
+    <form th:action="@{/propietarios/ingresar}"
+          th:object="${propietario}"
+          th:method="POST">
     <table>
-		<tr>
-			<td>
-				<label>ID: </label>
-			</td>
-			<td>
-				<input type="text" th:field="${propietario.id}">
-			</td>
-		</tr>
 		<tr>
 			<td>
 				<label>Nombre:</label>
@@ -55,7 +47,7 @@
 			</td>
 		</tr>
 	</table>
-	<input type="submit" value="Actualizar">
+	<input type="submit" value="Ingresar">
 	</form>
 </body>
 </html>
